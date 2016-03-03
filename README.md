@@ -5,7 +5,7 @@ In order to use it, you'll first need to install an updated version of node.js(a
 
 Here is a list of the most useful npm tasks you can run and what they do:
 * ```npm run build``` is used to compile all the source scss, es6 and vendor js into optimized, production ready code. It's a simple way of calling  ```npm run build-vendor-js```, ```npm run build-js``` and ```npm run build-css``` in a single command.
-* ```npm run build-vendor-js``` is used to build the vendor js file. It currently takes react, react-dom and ramda as its source. All the commands run by this task can be found at the file './bin/build-vendor-js'.
+* ```npm run build-vendor-js``` is used to build the vendor js file. It currently takes **react**, **react-dom** and **ramda** as its source. All the commands run by this task can be found at the file './bin/build-vendor-js'.
 * ```npm run build-js``` is used to compile the source es6. All the commands run by this task can be found at the file './bin/build-js'.
 * ```npm run build-css``` is used to build the optimized css. All the commands run by this task can be found at the file './bin/build-css'.
 * ```npm run start-dev``` is what you will want to run to start coding. It starts monitoring for file changes in your source scss and es6, rebuilds the output files and injects the new css to your browser, and in the case of the js changes it refreshes the browser. This task runs ```npm run watch``` and ```npm run sync``` in parallel.

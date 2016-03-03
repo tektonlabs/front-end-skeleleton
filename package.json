@@ -1,6 +1,6 @@
 {
   "name": "front-end-skeleton",
-	"browserify": {
+  "browserify": {
     "transform": [
       [
         "babelify",
