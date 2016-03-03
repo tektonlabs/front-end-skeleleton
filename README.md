@@ -42,18 +42,18 @@ When working with css, things can get messy pretty quickly since every class def
 
    ```scss
     @mixin breakpoint($point) {
-      @if $point == small {
-        @media (min-width: $small-bp) { @content; }
-      }
-      @else if $point == medium {
-        @media (min-width: $medium-bp) { @content; }
-      }
-      @else if $point == large {
-        @media (min-width: $large-bp) { @content; }
-      }
-      @else if $point == xlarge {
-        @media (min-width: $xlarge-bp) { @content; }
-      }
+        @if $point == small {
+            @media (min-width: $small-bp) { @content; }
+        }
+        @else if $point == medium {
+            @media (min-width: $medium-bp) { @content; }
+        }
+        @else if $point == large {
+            @media (min-width: $large-bp) { @content; }
+        }
+        @else if $point == xlarge {
+            @media (min-width: $xlarge-bp) { @content; }
+        }
     }
    ```
 
@@ -62,16 +62,17 @@ When working with css, things can get messy pretty quickly since every class def
    In your styles you would use the mixin this way:
    ```scss
     .class-name {
-        property-1: value;
-        property-2: value;
+        property: value;
+        property: value;
         @include breakpoint(medium) {
-        property-1: value;
-      }
+            property: value;
+        }
         @include breakpoint(large) {
-        property-1: value;
-      }
+            property: value;
+        }
     }
    ```
+
 * ##### Thinking in objects
 
    Using selectors that represent objects puts them in a direction to be more reusable and easy to identify or associate with a component in the view. Start using nouns like button, user-card, header, product, etc.
@@ -83,7 +84,6 @@ When working with css, things can get messy pretty quickly since every class def
    ```scss
     .post {
         margin: 20px;
-
         .title {
             font-size: 18px;
             color: #b06010;
@@ -188,6 +188,7 @@ When working with css, things can get messy pretty quickly since every class def
    As you can see, the convention to use here is ```.prefix-adjective``` for most cases, or simply ```.adjective``` when it's a singular property we're dealing with. The prefixes **is**, **has** and **in** are the ones I find the most useful and the ones I'm limiting myself to use because having too many sounds unnecessary and defeats the purpose of having conventions.
 
    You can use the ```.adjective``` form to describe simpler property modifications. Modifiers like ```.big```, ```.scrollable``` or ```.visible``` at most would change one or two properties. The ```.is-adjective``` form is also used a lot and it describes an state for the element. Common states are ```.is-disabled```, ```.is-active```. Then we have the ```.has-adjective``` modifier that is used when you want to change an element's properties because of it having an specific child or special content for that instance. For example we could have the modifiers ```.has-icon```, ```.has-title``` or ```.has-image``` in this category. I have also used modifiers like ```.in-section``` that changes an element's look and feel whether it is displayed on a specific section, e.g. ```.in-header```. You may find more combinations that fit different use cases, just try to restrain yourself from using too many.
+
 * ##### SCSS formatting
    This is the formatting we're using for applications and we believe it's really clean and organized.
    ```scss
@@ -195,25 +196,25 @@ When working with css, things can get messy pretty quickly since every class def
         @extend %placeholder; // First extend from placeholders
         @extend .class; // Then extend from classes
         @include mixin(params...); // Calls to mixins
-        property-1: value; // Leave a blank space after the ":"
-        property-2: value;
+        property: value; // Leave a blank space after the ":"
+        property: value;
         &:state { // Set properties for different element states
-            property-1: value;
+            property: value;
         }
         &.modifier-name { // Properties for modifiers come next
-            property-1: value;
+            property: value;
         }
         @include breakpoint(large) { // Add mediaquery mixins from min to max
-        property-1: value;
-      }
-      .child-class-name { // Finally add properties for nested children
-           property-1: value;
-           ...
-      }
+            property: value;
+        }
+        .child-class-name { // Finally add properties for nested children
+            property: value;
+            ...
+        }
     }
 
     .class-name { // Selectors are separated by a line break
-        property-1: value;
+        property: value;
     }
    ```
 
