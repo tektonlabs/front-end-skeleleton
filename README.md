@@ -40,7 +40,7 @@ When working with css, things can get messy pretty quickly since every class def
 
    In scss we have a pretty convenient way of adding media queries using a mixin. It's really useful for maintenance because all the styles for the selector are defined in the same place instead of having multiple instances of the selector accross multiple media queries. The mixin looks like this:
 
-   ```
+   ```scss
     @mixin breakpoint($point) {
       @if $point == small {
         @media (min-width: $small-bp) { @content; }
@@ -60,7 +60,7 @@ When working with css, things can get messy pretty quickly since every class def
    You can change the breakpoints in the **_variables.scss** file. They are defined in **ems** because they are the right unit for the job. You can read more about it in this [cloudfour article](http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/).
 
    In your styles you would use the mixin this way:
-   ```
+   ```scss
     .class-name {
         property-1: value;
         property-2: value;
@@ -80,7 +80,7 @@ When working with css, things can get messy pretty quickly since every class def
 
    Nesting selectors creates another specificity problem and also leads to unintended side effects. Let's say we have something like this:
 
-   ```
+   ```scss
     .post {
         margin: 20px;
 
@@ -94,7 +94,7 @@ When working with css, things can get messy pretty quickly since every class def
 
    Defining the styles for an object this way looks fine, but what if I had already defined a ```.title``` class before at the root level that had it's ```line-height``` and other bunch of properties already set to something that breaks the design of a post's title. Then I would have to overwrite each of them unnecessarily or have styles split accross different files for the same object which is bad for maintainability. It's a better pattern to have them defined this way.
 
-   ```
+   ```scss
     .post {
         margin: 20px;
     }
@@ -110,7 +110,7 @@ When working with css, things can get messy pretty quickly since every class def
 
    Another pattern to avoid nesting is using the plural name of the object as a class name to define its container. Then we would end up with something like:
 
-   ```
+   ```scss
     .posts {
         width: 100%;
         padding: 10px 20px;
@@ -130,7 +130,7 @@ When working with css, things can get messy pretty quickly since every class def
 
    In object-oriented systems, subclassing is useful for inheriting properties of another object. We can do the same in css by declaring a generic class and making other classes extend from it. I always use this for setting up my application icons like this:
 
-   ```
+   ```scss
     %icon {
         display: inline-block;
         background-repeat: no-repeat;
@@ -152,7 +152,7 @@ When working with css, things can get messy pretty quickly since every class def
 * ##### Modifiers
    Modifiers are a way of changing or adding new properties to an element according to some sort of context. This context may be given by different things like a state or just defined by an element being displayed on a specific section. Here is a basic example with a button:
 
-   ```
+   ```scss
    .button {
         color: white;
         font-size: 14px;
@@ -190,7 +190,7 @@ When working with css, things can get messy pretty quickly since every class def
    You can use the ```.adjective``` form to describe simpler property modifications. Modifiers like ```.big```, ```.scrollable``` or ```.visible``` at most would change one or two properties. The ```.is-adjective``` form is also used a lot and it describes an state for the element. Common states are ```.is-disabled```, ```.is-active```. Then we have the ```.has-adjective``` modifier that is used when you want to change an element's properties because of it having an specific child or special content for that instance. For example we could have the modifiers ```.has-icon```, ```.has-title``` or ```.has-image``` in this category. I have also used modifiers like ```.in-section``` that changes an element's look and feel whether it is displayed on a specific section, e.g. ```.in-header```. You may find more combinations that fit different use cases, just try to restrain yourself from using too many.
 * ##### SCSS formatting
    This is the formatting we're using for applications and we believe it's really clean and organized.
-   ```
+   ```scss
     .class-name { // Multiple words are separated by dashes
         @extend %placeholder; // First extend from placeholders
         @extend .class; // Then extend from classes
