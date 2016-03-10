@@ -1,5 +1,4 @@
 {
-  "name": "front-end-skeleton",
   "browserify": {
     "transform": [
       [
