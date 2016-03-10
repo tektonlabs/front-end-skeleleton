@@ -41,7 +41,6 @@
     "browserify": "^13.0.0",
     "es6-promise": "^3.1.2",
     "node-sass": "^3.4.2",
-    "parallelshell": "^2.0.0",
     "ramda": "^0.19.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
@@ -51,6 +50,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.11.1",
+    "parallelshell": "^2.0.0",
     "watchify": "^3.7.0"
   }
 }
